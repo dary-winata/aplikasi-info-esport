@@ -1,13 +1,15 @@
 package dicoding.project2.tampilanandroid
 
+import android.os.Parcelable
 import com.google.gson.annotations.SerializedName
+import kotlinx.parcelize.Parcelize
 
-data class EsportTLMDatabase(
-
-	@field:SerializedName("EsportTLMDatabase")
-	val esportTLMDatabase: List<EsportTLMDatabaseItem?>? = null
-)
-
+//data class EsportTLMDatabase(
+//
+//	@field:SerializedName("EsportTLMDatabase")
+//	val esportTLMDatabase: List<EsportTLMDatabaseItem>
+//)
+@Parcelize
 data class EsportTLMDatabaseItem(
 
 	@field:SerializedName("thumb")
@@ -30,4 +32,4 @@ data class EsportTLMDatabaseItem(
 
 	@field:SerializedName("desc")
 	val desc: String? = null
-)
+): Parcelable

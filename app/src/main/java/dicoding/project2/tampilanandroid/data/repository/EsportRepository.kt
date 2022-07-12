@@ -1,7 +1,7 @@
 package dicoding.project2.tampilanandroid.data.repository
 
-import dicoding.project2.tampilanandroid.data.api.EsportApi
+//import dicoding.project2.tampilanandroid.data.api.EsportApi
 
-class EsportRepository(private val esportApi: EsportApi) {
-    fun getEsport() = esportApi.getInfo()
-}
+//class EsportRepository(private val esportApi: EsportApi) {
+//    fun getEsport() = esportApi.getInfo()
+//}

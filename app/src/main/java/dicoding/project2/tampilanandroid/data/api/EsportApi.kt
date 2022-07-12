@@ -1,7 +1,7 @@
 package dicoding.project2.tampilanandroid.data.api
 
-import dicoding.project2.tampilanandroid.EsportTLMDatabase
+//import dicoding.project2.tampilanandroid.EsportTLMDatabase
 
-interface EsportApi {
-    fun getInfo(): EsportTLMDatabase
-}
+//interface EsportApi {
+//    fun getInfo(): EsportTLMDatabase
+//}
