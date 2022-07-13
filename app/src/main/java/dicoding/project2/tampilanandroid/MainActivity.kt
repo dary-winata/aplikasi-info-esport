@@ -8,6 +8,7 @@ import android.view.View
 import android.widget.TextView
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.google.android.material.bottomnavigation.BottomNavigationView
 import dicoding.project2.tampilanandroid.data.api.RetrofitBuilder
 import dicoding.project2.tampilanandroid.ui.main.adapter.EsportListAdapater
 import dicoding.project2.tampilanandroid.ui.main.adapter.ListenerRecycleView
@@ -16,7 +17,7 @@ import retrofit2.Response
 
 class MainActivity : AppCompatActivity(), ListenerRecycleView {
     private val list = ArrayList<EsportTLMDatabaseItem>()
-    private lateinit var tv: TextView
+    private lateinit var navigation: BottomNavigationView
     private lateinit var rvPost: RecyclerView
     private lateinit var adapter: EsportListAdapater
 
@@ -28,6 +29,8 @@ class MainActivity : AppCompatActivity(), ListenerRecycleView {
         val layoutManager = LinearLayoutManager(this)
         layoutManager.orientation = LinearLayoutManager.VERTICAL
         rvPost.layoutManager = layoutManager
+
+        navigationHandler()
 
         RetrofitBuilder.apiService.getEsport().enqueue(
             object : retrofit2.Callback<List<EsportTLMDatabaseItem>> {
@@ -55,5 +58,17 @@ class MainActivity : AppCompatActivity(), ListenerRecycleView {
         val intent =Intent(this@MainActivity, DescriptionActivity::class.java)
         intent.putExtra("data", esportTLMDatabaseItem)
         this.startActivity(intent)
+    }
+
+    private fun navigationHandler() {
+        navigation = findViewById(R.id.bnavMain)
+        navigation.setOnNavigationItemSelectedListener { item ->
+            if(item.itemId == R.id.nav_about) {
+                val intent = Intent(this@MainActivity, AboutActivity::class.java)
+                this.startActivity(intent)
+                return@setOnNavigationItemSelectedListener true
+            }
+            false
+        }
     }
 }
